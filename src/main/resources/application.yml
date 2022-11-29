@@ -1,0 +1,44 @@
+server:
+  port: 8086
+  servlet:
+    encoding:
+      charset: UTF-8
+      enabled: true
+      force: true
+## SSL setting
+#  ssl:
+#    key-store: classpath:rmqcngkeystore.jks
+#    key-store-password: rocketmq
+#    key-store-type: PKCS12
+#    key-alias: rmqcngkey
+
+spring:
+  application:
+    name: rocketmq-dashboard
+
+logging:
+  config: classpath:logback.xml
+
+rocketmq:
+  config:
+    namesrvAddrs:
+      - 127.0.0.1:9876
+      - 127.0.0.2:9876
+    isVIPChannel:
+    timeoutMillis:
+    dataPath: /tmp/rocketmq-console/data
+    enableDashBoardCollect: true
+    msgTrackTopicName:
+    ticketKey: ticket
+    loginRequired: false
+    useTLS: false
+    # set the accessKey and secretKey if you used acl
+    accessKey: # if version > 4.4.0
+    secretKey: # if version > 4.4.0
+
+threadpool:
+  config:
+    coreSize: 10
+    maxSize: 10
+    keepAliveTime: 3000
+    queueSize: 5000
